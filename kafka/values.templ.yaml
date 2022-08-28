@@ -1,0 +1,17 @@
+clusterNames:
+  - ocp1
+  - ocp2
+  - ocp3
+
+cluster: ${cluster}
+
+zookeeper:
+  replicas: 3
+
+kafka:
+  replicas: 3  
+
+
+latency: ${latency}
+bandwidth: ${bandwidth}  
+

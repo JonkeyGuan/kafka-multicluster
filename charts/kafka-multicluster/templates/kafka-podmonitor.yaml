@@ -1,0 +1,30 @@
+
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: kafka
+spec:
+  selector:
+    matchLabels:
+      app: kafka
+  podMetricsEndpoints:
+  - port: metrics
+    path: /metrics 
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: kafka-exporter
+spec:
+  selector:
+    matchLabels:
+      app: kafka-exporter
+  podMetricsEndpoints:
+  - port: metrics
+    path: /metrics 
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}    
